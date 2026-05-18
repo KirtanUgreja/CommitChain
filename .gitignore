@@ -1,1 +1,38 @@
 .worktrees/
+
+# Dependencies and build output
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+cache/
+**/cache/
+artifacts/
+**/artifacts/
+coverage/
+**/coverage/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Environment files
+.env
+.env.local
+.env.*
+!.env.example
+contracts/.env
+frontend/.env*
+backend/.env
+
+# AI tools
+.claude
+CLAUDE.md
+agents.md
+AGENTS.md
+.cursor
+.cursorignore
+.aider*
+.copilot
+superpowers/
+.superpowers/
+**/docs/superpowers/
