@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 function shortenAddress(address: `0x${string}`) {
@@ -7,6 +8,7 @@ function shortenAddress(address: `0x${string}`) {
 }
 
 export function ConnectButton() {
+  const [hasMounted, setHasMounted] = useState(false);
   const { address, isConnected } = useAccount();
   const { connect, connectors, isPending } = useConnect();
   const { disconnect } = useDisconnect();
@@ -14,6 +16,22 @@ export function ConnectButton() {
   const injectedConnector = connectors.find(
     (connector) => connector.type === "injected",
   );
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return (
+      <button
+        type="button"
+        disabled
+        className="rounded-md bg-[#22c55e] px-4 py-2 text-sm font-semibold text-black opacity-60"
+      >
+        Connect Wallet
+      </button>
+    );
+  }
 
   if (isConnected && address) {
     return (

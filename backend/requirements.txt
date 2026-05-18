@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+mangum
+web3
+supabase
+resend
+python-telegram-bot==20.7
+python-dotenv
+apscheduler
+httpx
+python-multipart
